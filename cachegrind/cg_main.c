@@ -248,7 +248,7 @@ static LineCC* get_lineCC(Addr origAddr)
    // Form an absolute pathname if a directory is available
    HChar absfile[VG_(strlen)(dir) + 1 + VG_(strlen)(file) + 1];
 
-   if (dir[0]) {
+   if (dir[0] && file[0] != '/') {
       VG_(sprintf)(absfile, "%s/%s", dir, file);
    } else {
       VG_(sprintf)(absfile, "%s", file);
